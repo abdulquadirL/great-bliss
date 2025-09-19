@@ -14,7 +14,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative bg-gradient-to-r from-blue-50 to-indigo-100 py-20">
+    <section className="relative bg-gradient-to-r from-red-100 to-gray-50 py-20">
       <div className="container mx-auto px-4 text-center ">
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
           Premium Skincare for 

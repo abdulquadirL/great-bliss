@@ -57,7 +57,7 @@ export default function ProductCard({ product, onAddToCart, onProductClick }: Pr
           <p className="text-gray-600 text-sm mb-3 line-clamp-2">{product.description}</p>
           
           <div className="space-y-2">
-            <div className="flex items-center justify-between">
+            {/* <div className="flex items-center justify-between">
               <span className="text-sm text-gray-500">Retail Price:</span>
               <span className="font-semibold">{formatPrice(product.retailPrice)}</span>
             </div>
@@ -65,7 +65,7 @@ export default function ProductCard({ product, onAddToCart, onProductClick }: Pr
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-500">Wholesale Price:</span>
               <span className="font-semibold text-green-600">{formatPrice(product.wholesalePrice)}</span>
-            </div>
+            </div> */}
             
             <p className="text-xs text-gray-500">
               Min. wholesale quantity: {product.minimumWholesaleQuantity}

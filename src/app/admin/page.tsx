@@ -120,10 +120,10 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-white shadow">
+    <div className="min-h-screen bg-yellow-50">
+      <div className="bg-gray-300 shadow">
         <div className="container mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-gray-900">GreatBliss Admin Dashboard</h1>
+          <h1 className="text-3xl font-bold text-gray-800">GreatBliss Admin Dashboard</h1>
           <p className="text-gray-600 mt-2">Manage your e-commerce store</p>
         </div>
       </div>

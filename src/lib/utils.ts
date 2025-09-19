@@ -1,3 +1,4 @@
+import { Order } from "@/types"
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 
@@ -50,7 +51,13 @@ ${itemsList}
 Please process this order. Thank you! 🙏`
 }
 
-export function sendWhatsAppNotification(order: any, phoneNumber: string = '2348000000000') {
+// export function sendWhatsAppNotification(order: Order, phoneNumber: string = '2348000000000') {
+//   const message = generateWhatsAppMessage(order)
+//   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+//   window.open(whatsappUrl, '_blank')
+// }
+
+export const sendWhatsAppNotification = async (order: Order, phoneNumber: string = '2348140333474'): Promise<void> => {
   const message = generateWhatsAppMessage(order)
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
   window.open(whatsappUrl, '_blank')

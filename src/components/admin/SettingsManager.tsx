@@ -242,9 +242,9 @@ export default function SettingsManager({ settings, onUpdate }: SettingsManagerP
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                 {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(day => (
                   <label key={day} className="flex items-center">
-                    <input
+                    {/* <input
                       type="checkbox"
-                      checked={formData.storeHours.days.includes(day)}
+                      checked={formData.storeHours.days.includes(day)} 
                       onChange={(e) => {
                         const days = e.target.checked
                           ? [...formData.storeHours.days, day]
@@ -255,7 +255,24 @@ export default function SettingsManager({ settings, onUpdate }: SettingsManagerP
                         })
                       }}
                       className="mr-2"
-                    />
+                    /> */}
+                    <input
+  type="checkbox"
+  checked={formData.storeHours?.days?.includes(day) ?? false}
+  onChange={(e) => {
+    const currentDays = formData.storeHours?.days || []
+    const days = e.target.checked
+      ? [...currentDays, day]
+      : currentDays.filter((d: string) => d !== day)
+
+    handleInputChange('storeHours', {
+      ...formData.storeHours,
+      days
+    })
+  }}
+  className="mr-2"
+/>
+
                     {day}
                   </label>
                 ))}
