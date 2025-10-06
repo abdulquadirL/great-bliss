@@ -29,9 +29,7 @@ export default function Header({ cartItemsCount, onCartClick, searchQuery, onSea
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link href="/" className="text-gray-700 hover:text-primary transition-colors">Home</Link>
-            <a href="#products" className="text-gray-700 hover:text-primary transition-colors">Products</a>
-            <a href="#about" className="text-gray-700 hover:text-primary transition-colors">About</a>
-            <a href="#contact" className="text-gray-700 hover:text-primary transition-colors">Contact</a>
+            <Link href="#products" className="text-gray-700 hover:text-primary transition-colors">Products</Link>
             <Link href="/admin" className="text-gray-700 hover:text-primary transition-colors">Admin</Link>
           </nav>
 
@@ -56,9 +54,9 @@ export default function Header({ cartItemsCount, onCartClick, searchQuery, onSea
             onClick={onCartClick}
             className="relative"
           >
-            <ShoppingCart className="h-4 w-4" />
+            <ShoppingCart className="h-5 w-5" />
             {cartItemsCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
+              <span className="absolute -top-1 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
                 {cartItemsCount}
               </span>
             )}
@@ -93,9 +91,9 @@ export default function Header({ cartItemsCount, onCartClick, searchQuery, onSea
               
               {/* Mobile Navigation Links */}
               <Link href="/" className="block px-3 py-2 text-gray-700 hover:text-primary">Home</Link>
-              <a href="#products" className="block px-3 py-2 text-gray-700 hover:text-primary">Products</a>
-              <a href="#about" className="block px-3 py-2 text-gray-700 hover:text-primary">About</a>
-              <a href="#contact" className="block px-3 py-2 text-gray-700 hover:text-primary">Contact</a>
+              <Link href="#products" className="block px-3 py-2 text-gray-700 hover:text-primary">Products</Link>
+              {/* <a href="#about" className="block px-3 py-2 text-gray-700 hover:text-primary">About</a>
+              <a href="#contact" className="block px-3 py-2 text-gray-700 hover:text-primary">Contact</a> */}
               <Link href="/admin" className="block px-3 py-2 text-gray-700 hover:text-primary">Admin</Link>
             </div>
           </div>

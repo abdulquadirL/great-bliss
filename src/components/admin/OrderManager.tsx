@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Order } from '@/types'
+import { AdminSettings, Order } from '@/types'
 import { orderStorage } from '@/lib/storage'
 import { formatPrice, formatDate } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -9,13 +9,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Eye, Package, Truck, CheckCircle, XCircle } from 'lucide-react'
 import { toast } from 'sonner'
+import OrderInvoiceModal from '../invoice/OrderInvoiceModal'
 
 interface OrderManagerProps {
   orders: Order[]
   onUpdate: () => void
+  settings: AdminSettings | null
 }
-
-export default function OrderManager({ orders, onUpdate }: OrderManagerProps) {
+export default function OrderManager({ orders, onUpdate, settings }: OrderManagerProps) {
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null)
   const [statusFilter, setStatusFilter] = useState<string>('all')
 
@@ -58,6 +59,7 @@ export default function OrderManager({ orders, onUpdate }: OrderManagerProps) {
 
   return (
     <div className="space-y-6">
+      {selectedOrder && <OrderInvoiceModal order={selectedOrder} settings={settings} />}
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Order Management</h2>
         <div className="flex gap-2">

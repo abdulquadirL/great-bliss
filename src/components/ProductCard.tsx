@@ -32,11 +32,11 @@ export default function ProductCard({ product, onAddToCart, onProductClick }: Pr
   return (
     <Card className="group cursor-pointer hover:shadow-lg transition-shadow duration-200" onClick={handleViewDetails}>
       <CardContent className="p-0">
-        <div className="relative overflow-hidden rounded-t-lg">
+        <div className="relative overflow-hidden rounded-xl">
           <Image
-            src={product.image}
+            src={product.image || ""}
             alt={product.name}
-            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-200"
+            className="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-200"
             width={384}
             height={192}
           />
@@ -54,7 +54,7 @@ export default function ProductCard({ product, onAddToCart, onProductClick }: Pr
         
         <div className="p-4">
           <h3 className="font-semibold text-lg mb-2 line-clamp-2">{product.name}</h3>
-          <p className="text-gray-600 text-sm mb-3 line-clamp-2">{product.description}</p>
+          {/* <p className="text-gray-600 text-sm mb-3 line-clamp-2">{product.description}</p> */}
           
           <div className="space-y-2">
             {/* <div className="flex items-center justify-between">
@@ -113,23 +113,23 @@ export default function ProductCard({ product, onAddToCart, onProductClick }: Pr
         </div>
       </CardContent>
       
-      <CardFooter className="p-4 pt-0 space-y-2">
+      <CardFooter className="p-4 pt-0 space-y-2 gap-2">
         <Button
-          className="w-full"
+          className="w-full bg-green-200 rounded-lg"
           onClick={handleAddToCart}
           disabled={!product.inStock}
         >
           <Plus className="h-4 w-4 mr-2" />
-          Add to Cart
+          Add
         </Button>
         
         <Button
           variant="outline"
-          className="w-full"
+          className="w-3/4"
           onClick={handleViewDetails}
         >
           <Eye className="h-4 w-4 mr-2" />
-          View Details
+          View 
         </Button>
       </CardFooter>
     </Card>

@@ -36,6 +36,10 @@ export interface Order {
   id: string;
   customer: Customer;
   items: CartItem[];
+  subTotal: number;
+  tax: number;
+  shippingFee: number;
+  discount?: number;
   total: number;
   status: 'pending' | 'confirmed' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
   createdAt: Date;
@@ -59,6 +63,7 @@ export interface AdminSettings {
   taxRate: number;
   shippingFee: number;
   minimumOrderAmount: number;
+  invoiceNotes: string;
 }
 
 export interface Analytics {

@@ -47,7 +47,7 @@ export default function ProductDetails({ product, onClose, onAddToCart }: Produc
 
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+      className="fixed inset-0 bg-background bg-opacity-50 flex items-center justify-center p-4 z-50"
       role="dialog"
       aria-modal="true"
       aria-label={`Details for ${product.name}`}
@@ -73,7 +73,7 @@ export default function ProductDetails({ product, onClose, onAddToCart }: Produc
                   priority
                 />
                 {product.featured && (
-                  <Badge className="absolute top-2 left-2 bg-yellow-500">
+                  <Badge className="absolute top-2 left-2 bg-yellow-800">
                     Featured
                   </Badge>
                 )}
@@ -110,7 +110,7 @@ export default function ProductDetails({ product, onClose, onAddToCart }: Produc
               {/* Benefits */}
               {product.benefits?.length > 0 && (
                 <div>
-                  <h4 className="font-semibold mb-2">Key Benefits:</h4>
+                  <h4 className="font-semibold mb-2 bg-green-300">Key Benefits:</h4>
                   <ul className="list-disc list-inside space-y-1 text-sm text-gray-600">
                     {product.benefits.map((benefit, index) => (
                       <li key={index}>{benefit}</li>
@@ -121,7 +121,7 @@ export default function ProductDetails({ product, onClose, onAddToCart }: Produc
               {/* Ingredients */}
               {product.ingredients?.length > 0 && (
                 <div>
-                  <h4 className="font-semibold mb-2">Key Ingredients:</h4>
+                  <h4 className="font-semibold mb-2 text-white bg-yellow-700">Key Ingredients:</h4>
                   <div className="flex flex-wrap gap-2">
                     {product.ingredients.map((ingredient, index) => (
                       <Badge key={index} variant="secondary">
@@ -204,15 +204,15 @@ export default function ProductDetails({ product, onClose, onAddToCart }: Produc
                 </div>
                 {/* Add to Cart Button */}
                 <Button
-                  className="w-full"
+                  className="w-full bg-green-300 text-black"
                   size="lg"
                   onClick={handleAddToCart}
                   disabled={!product.inStock}
                   aria-disabled={!product.inStock}
                   aria-label="Add to cart"
                 >
-                  <ShoppingCart className="h-4 w-4 mr-2" />
-                  Add to Cart
+                  <ShoppingCart className="h-4 w-4 mr-2 text-white " />
+                  ADD TO CART
                 </Button>
               </div>
             </div>

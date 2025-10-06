@@ -311,7 +311,7 @@ export default function ProductManager({ products, onUpdate }: ProductManagerPro
             <CardContent className="p-4">
               <div className="flex gap-3">
                 <img
-                  src={product.image}
+                  src={product.image || ""}
                   alt={product.name}
                   className="w-20 h-20 object-cover rounded"
                 />

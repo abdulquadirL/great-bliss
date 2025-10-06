@@ -13,7 +13,7 @@ export default function ProductGrid({ products, onAddToCart, onProductClick }: P
   if (products.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-500 text-lg">No products found</p>
+        <p className="text-red-500 text-lg">No products found</p>
       </div>
     )
   }

@@ -11,6 +11,7 @@ import ProductDetails from '@/components/ProductDetails'
 import Cart from '@/components/Cart'
 import Checkout from '@/components/Checkout'
 import { toast } from 'sonner'
+import { SlidersHorizontal } from 'lucide-react'
 
 const CART_STORAGE_KEY = 'gb_cart'
 
@@ -128,6 +129,9 @@ export default function HomePage() {
       id: generateOrderId(),
       customer: customerData,
       items: cartItems,
+      subTotal: getTotalPrice(),
+      tax: 0,
+      shippingFee: 0,
       total: getTotalPrice(),
       status: 'pending',
       createdAt: new Date(),
@@ -173,7 +177,7 @@ export default function HomePage() {
         <Hero />
         
         <section className="py-16 px-8">
-          <div className="container">
+          <div className="container bg-white mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">
               Our Premium Skincare Collection
             </h2>
