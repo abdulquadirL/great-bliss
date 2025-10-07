@@ -146,7 +146,7 @@ importers:
         version: 3.3.1
       '@tailwindcss/postcss':
         specifier: ^4
-        version: 4.1.11
+        version: 4.1.13
       '@types/node':
         specifier: ^20
         version: 20.19.10
@@ -164,7 +164,7 @@ importers:
         version: 15.4.6(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2)
       tailwindcss:
         specifier: ^4
-        version: 4.1.11
+        version: 4.1.13
       typescript:
         specifier: ^5
         version: 5.9.2
