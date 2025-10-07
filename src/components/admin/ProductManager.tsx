@@ -3,13 +3,14 @@
 import { useState } from 'react'
 import { Product } from '@/types'
 import { productStorage, imageStorage } from '@/lib/storage'
-import { formatPrice, formatDate } from '@/lib/utils'
+import { formatPrice } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Plus, Edit, Trash2, Eye, Upload, X } from 'lucide-react'
+import { Plus, Edit, Trash2} from 'lucide-react'
 import { toast } from 'sonner'
+import Image from 'next/image'
 
 interface ProductManagerProps {
   products: Product[]
@@ -246,7 +247,7 @@ export default function ProductManager({ products, onUpdate }: ProductManagerPro
                     onChange={handleImageChange}
                   />
                   {imagePreview && (
-                    <img src={imagePreview} alt="Preview" className="w-32 h-32 object-cover rounded" />
+                    <Image src={imagePreview} alt="Preview" className="w-32 h-32 object-cover rounded" width={128} height={128} />
                   )}
                 </div>
               </div>
@@ -310,10 +311,12 @@ export default function ProductManager({ products, onUpdate }: ProductManagerPro
           <Card key={product.id}>
             <CardContent className="p-4">
               <div className="flex gap-3">
-                <img
+                <Image
                   src={product.image || ""}
                   alt={product.name}
                   className="w-20 h-20 object-cover rounded"
+                  width={80}
+                  height={80}
                 />
                 
                 <div className="flex-1 space-y-2">

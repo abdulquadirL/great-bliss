@@ -158,6 +158,7 @@ export default function Hero() {
             </motion.div>
           ))}
         </div>
+        
       </div>
 
       {/* Main Content */}
@@ -206,14 +207,17 @@ export default function Hero() {
               {/* <div className="relative w-32 h-32">
                 
               </div> */}
-              <div>
+              {/* <div>
                 <h3 className="text-2xl font-semibold text-gray-900">
                   {brands[currentBrand].name}
                 </h3>
                 <p className="text-gray-600">
                   {brands[currentBrand].description}
                 </p>
-              </div>
+              </div> */}
+              <Button size="lg" onClick={scrollToProducts} className="text-lg px-8">
+                Shop Now
+              </Button>
             </motion.div>
           </AnimatePresence>
 

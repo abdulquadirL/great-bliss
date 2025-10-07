@@ -3,8 +3,9 @@ import { orderStorage, settingsStorage } from "@/lib/storage";
 import { formatPrice, formatDate } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-export default async function InvoicePage({ params }: { params: { id: string } }) {
-  const order = orderStorage.getById(params.id);
+
+export default async function InvoicePage(props: any) {
+  const order = orderStorage.getById(props.params.id);
   const settings = settingsStorage.get();
 
   if (!order) {

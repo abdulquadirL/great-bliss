@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { Product, CartItem, Customer, Order } from '@/types'
 import { productStorage, orderStorage } from '@/lib/storage'
-import { generateOrderId, formatPrice, sendWhatsAppNotification } from '@/lib/utils'
+import { generateOrderId, sendWhatsAppNotification } from '@/lib/utils'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import ProductGrid from '@/components/ProductGrid'
@@ -11,7 +11,6 @@ import ProductDetails from '@/components/ProductDetails'
 import Cart from '@/components/Cart'
 import Checkout from '@/components/Checkout'
 import { toast } from 'sonner'
-import { SlidersHorizontal } from 'lucide-react'
 
 const CART_STORAGE_KEY = 'gb_cart'
 

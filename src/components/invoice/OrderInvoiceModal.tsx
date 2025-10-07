@@ -5,7 +5,7 @@ import { Order, AdminSettings, Product } from '@/types'
 import { formatPrice, formatDate } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Download, Printer, Share2, Mail, MessageCircle } from 'lucide-react'
+import { Download, Printer, Share2, Mail, Eye } from 'lucide-react'
 
 interface InvoiceModalProps {
   order: Order
@@ -24,7 +24,7 @@ export default function OrderInvoiceModal({ order, settings }: InvoiceModalProps
   const invoiceRef = useRef<HTMLDivElement | null>(null)
 
   // calculate line unit price (fallback to product prices if order item price missing)
-  const linePrice = (item: any) => {
+  const linePrice = (item: { price: number | undefined; product: Product; priceType: 'wholesale' | 'retail' }) => {
     if (typeof item.price === 'number') return item.price
     const p: Product = item.product
     return item.priceType === 'wholesale' ? p.wholesalePrice : p.retailPrice
@@ -167,7 +167,7 @@ export default function OrderInvoiceModal({ order, settings }: InvoiceModalProps
 
   return (
     <div>
-      <Button onClick={openModal} variant="outline"><Printer className="mr-2" />View Invoice</Button>
+      <Button onClick={openModal} variant="outline"><Printer className="mr-2" />View Invoice<Eye className="ml-2" /></Button>
 
       {open && (
         <div className="fixed inset-0 z-50 flex items-start justify-center p-6">
@@ -232,7 +232,7 @@ export default function OrderInvoiceModal({ order, settings }: InvoiceModalProps
                   </tr>
                 </thead>
                 <tbody>
-                  {order.items.map((item: any) => (
+                  {order.items.map((item: { product: Product; priceType: 'wholesale' | 'retail'; quantity: number } | any) => (
                     <tr key={`${order.id}-${item.product.id}`}>
                       <td className="py-2">
                         <div className="font-medium">{item.product.name}</div>

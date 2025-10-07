@@ -24,8 +24,8 @@ export function generateOrderId(): string {
   return `GB${Date.now()}${Math.random().toString(36).substring(2, 5).toUpperCase()}`
 }
 
-export function generateWhatsAppMessage(order: any): string {
-  const itemsList = order.items.map((item: any) => 
+export function generateWhatsAppMessage(order: Order): string {
+  const itemsList = order.items.map((item) => 
     `• ${item.product.name} (${item.priceType}) - ${item.quantity}x ${formatPrice(item.priceType === 'wholesale' ? item.product.wholesalePrice : item.product.retailPrice)}`
   ).join('\n')
 
@@ -33,10 +33,10 @@ export function generateWhatsAppMessage(order: any): string {
 
 *Order ID:* ${order.id}
 *Customer:* ${order.customer.name}
-*Phone:* ${order.customer.phone}
-*Email:* ${order.customer.email}
+*Phone:* <Phone/> ${order.customer.phone}
+*Email:* <Mail/> ${order.customer.email}
 
-*Shipping Address:*
+*Shipping Address:*<MapPin/>
 ${order.customer.address}
 ${order.customer.city}, ${order.customer.state}
 

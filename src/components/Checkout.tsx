@@ -139,7 +139,7 @@ export default function Checkout({ isOpen, onClose, cartItems, total, onSubmit }
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium mb-1">Email Address *</label>
+                  <label className="block text-sm font-medium mb-1"> <Mail/>Email Address *</label>
                   <Input
                     type="email"
                     value={customerData.email}
@@ -149,9 +149,9 @@ export default function Checkout({ isOpen, onClose, cartItems, total, onSubmit }
                   />
                 </div>
               </div>
-
+              
               <div>
-                <label className="block text-sm font-medium mb-1">Phone Number *</label>
+                <label className="block text-sm font-medium mb-1"><Phone/>Phone Number *</label>
                 <Input
                   type="tel"
                   value={customerData.phone}

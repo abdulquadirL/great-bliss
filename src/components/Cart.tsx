@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from '@/components/ui/sheet'
 import { Badge } from '@/components/ui/badge'
 import { Plus, Minus, Trash2, ShoppingCart } from 'lucide-react'
+import Image from 'next/image'
 
 interface CartProps {
   isOpen: boolean
@@ -61,13 +62,15 @@ export default function Cart({
             </div>
           ) : (
             <div className="space-y-4">
-              {items.map((item, index) => (
+              {items.map((item) => (
                 <div key={`${item.product.id}-${item.priceType}`} className="bg-white border rounded-lg p-4">
                   <div className="flex gap-3">
-                    <img
+                    <Image
                       src={item.product.image}
                       alt={item.product.name}
                       className="w-16 h-16 object-cover rounded"
+                      width={64}
+                      height={64}
                     />
                     
                     <div className="flex-1 space-y-2">

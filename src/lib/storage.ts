@@ -68,7 +68,7 @@ export const orderStorage = {
   getAll: (): Order[] => {
     if (typeof window === 'undefined') return []
     const stored = localStorage.getItem(STORAGE_KEYS.ORDERS)
-    return stored ? JSON.parse(stored).map((order: any) => ({
+    return stored ? JSON.parse(stored).map((order: Order) => ({
       ...order,
       createdAt: new Date(order.createdAt),
       updatedAt: new Date(order.updatedAt)
@@ -228,9 +228,11 @@ function getDefaultSettings(): AdminSettings {
     taxRate: 0,
     shippingFee: 2000,
     minimumOrderAmount: 5000,
-    storeHours: '',
+    storeHours: { open: '', close: '', days: [] },
     privacyPolicy: '',
     returnPolicy: '',
     shippingPolicy: '',
+    invoiceNotes: 'Thank you for your purchase! We appreciate your patronage.',
+    days: []
   }
 }

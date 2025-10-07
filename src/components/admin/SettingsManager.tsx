@@ -5,7 +5,7 @@ import { AdminSettings } from '@/types'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Settings, Store, Phone, Mail, MapPin, CreditCard } from 'lucide-react'
+import { Settings, Store, Phone, MapPin, CreditCard } from 'lucide-react'
 import { toast } from 'sonner'
 
 interface SettingsManagerProps {
@@ -14,7 +14,10 @@ interface SettingsManagerProps {
 }
 
 export default function SettingsManager({ settings, onUpdate }: SettingsManagerProps) {
-  const [formData, setFormData] = useState<AdminSettings>(settings)
+  const [formData, setFormData] = useState<AdminSettings>({
+    ...settings,
+    storeHours: settings.storeHours || { open: '', close: '', days: [] }
+  })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -216,9 +219,9 @@ export default function SettingsManager({ settings, onUpdate }: SettingsManagerP
                 <label className="block text-sm font-medium mb-1">Opening Time</label>
                 <Input
                   type="time"
-                  value={formData.storeHours.open}
+                  value={formData.storeHours?.open || ''}
                   onChange={(e) => handleInputChange('storeHours', {
-                    ...formData.storeHours,
+                    ...formData.storeHours as string | any,
                     open: e.target.value
                   })}
                 />
@@ -228,9 +231,9 @@ export default function SettingsManager({ settings, onUpdate }: SettingsManagerP
                 <label className="block text-sm font-medium mb-1">Closing Time</label>
                 <Input
                   type="time"
-                  value={formData.storeHours.close}
+                  value={formData.storeHours?.close || ''}
                   onChange={(e) => handleInputChange('storeHours', {
-                    ...formData.storeHours,
+                    ...formData.storeHours as string | any,
                     close: e.target.value
                   })}
                 />
@@ -257,16 +260,16 @@ export default function SettingsManager({ settings, onUpdate }: SettingsManagerP
                       className="mr-2"
                     /> */}
                     <input
-  type="checkbox"
-  checked={formData.storeHours?.days?.includes(day) ?? false}
-  onChange={(e) => {
-    const currentDays = formData.storeHours?.days || []
-    const days = e.target.checked
-      ? [...currentDays, day]
-      : currentDays.filter((d: string) => d !== day)
+                      type="checkbox"
+                      checked={formData.storeHours?.days?.includes(day) ?? false}
+                      onChange={(e) => {
+                        const currentDays = formData.storeHours?.days || []
+                        const days = e.target.checked
+                          ? [...currentDays, day]
+                          : currentDays.filter((d: string) => d !== day)
 
     handleInputChange('storeHours', {
-      ...formData.storeHours,
+      ...formData.storeHours?.days && { ...formData.storeHours as string | any },
       days
     })
   }}

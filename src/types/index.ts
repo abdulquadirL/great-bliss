@@ -50,7 +50,8 @@ export interface Order {
 }
 
 export interface AdminSettings {
-  storeHours: any;
+  storeHours: { open: string; close: string; days: string[] } | null;
+  days: string[];
   privacyPolicy: string | number | readonly string[] | undefined;
   shippingPolicy: string | number | readonly string[] | undefined;
   returnPolicy: string | number | readonly string[] | undefined;
