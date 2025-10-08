@@ -184,7 +184,8 @@ export default function HomePage() {
       />
 
       <main className="pb-16">
-        <Hero />
+         <Hero/>  
+        
         
         <section className="py-16 px-8">
           <div className="container bg-white mx-auto">
