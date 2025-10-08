@@ -189,7 +189,7 @@ export default function HomePage() {
         
         <section className="py-16 px-8">
           <div className="container bg-white mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-lg md:text-3xl font-bold text-center mb-12">
               Our Premium Skincare Collection
             </h2>
             <ProductGrid

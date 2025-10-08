@@ -21,9 +21,9 @@ export default function Header({ cartItemsCount, onCartClick, searchQuery, onSea
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-primary">GreatBliss</h1>
-            <span className="text-sm text-gray-600 ml-2">SkincareNG</span>
+          <div className="pl-6 flex items-center">
+            <h1 className="text-sm md:text-2xl font-bold text-primary">GreatBliss</h1>
+            <span className="text-sm text-gray-600 ml-1">SkincareNG</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -54,9 +54,9 @@ export default function Header({ cartItemsCount, onCartClick, searchQuery, onSea
             onClick={onCartClick}
             className="relative"
           >
-            <ShoppingCart className="h-5 w-5" />
+            <ShoppingCart className="h-3 w-3 md:h-5 md:w-5" />
             {cartItemsCount > 0 && (
-              <span className="absolute -top-1 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
+              <span className="absolute -right-1 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
                 {cartItemsCount}
               </span>
             )}
