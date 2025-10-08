@@ -11,8 +11,19 @@ import ProductDetails from '@/components/ProductDetails'
 import Cart from '@/components/Cart'
 import Checkout from '@/components/Checkout'
 import { toast } from 'sonner'
+import { createClient } from '@/lib/utils/supabase/server'
+import { cookies } from 'next/headers'
 
 const CART_STORAGE_KEY = 'gb_cart'
+
+  // const cookieStore = await cookies()
+  // const supabase = createClient(cookieStore)
+
+  // const { data: todos } = await supabase.from('todos').select()
+
+
+
+
 
 export default function HomePage() {
   // State Management
